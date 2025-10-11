@@ -4,74 +4,93 @@
 <meta charset="UTF-8">
 <title>Ultimate Random Enemy Generator</title>
 <style>
-  body {
-    font-family: sans-serif;
-    padding: 20px;
-    background: #1e1e1e;
-    color: #f0f0f0;
-  }
-  h1 { margin-bottom: 10px; }
-  .buttons { display: flex; gap: 10px; margin-bottom: 20px; }
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    background: #444;
-    color: #fff;
-    transition: background 0.2s, transform 0.1s;
-  }
-  button:hover { background: #666; }
-  button:active { transform: scale(0.97); }
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+h1 { margin-bottom: 10px; }
+.buttons { display: flex; gap: 10px; margin-bottom: 20px; }
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #444;
+  color: #fff;
+  transition: background 0.2s, transform 0.1s;
+}
+button:hover { background: #666; }
+button:active { transform: scale(0.97); }
 
-  .enemy {
-    position: relative;
-    background: #2c2c2c;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    opacity: 0;
-    animation: fadeIn 0.4s ease forwards;
-    border: 2px solid #333;
-    transition: box-shadow 0.3s, border-color 0.3s;
-  }
-  .boss {
-    border-color: gold;
-    box-shadow: 0 0 10px gold;
-    background: linear-gradient(145deg, #2c2c2c, #3a3000);
-  }
+.enemy {
+  position: relative;
+  background: #2c2c2c;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+  border: 2px solid #333;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  overflow: hidden;
+}
+.boss {
+  border-color: gold;
+  box-shadow: 0 0 10px gold;
+  background: linear-gradient(145deg, #2c2c2c, #3a3000);
+}
 
-  @keyframes fadeIn { to { opacity: 1; } }
-  @keyframes fadeOut { to { opacity: 0; } }
-  @keyframes floatEnemy { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes floatEnemy { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
 
-  /* Element glows */
-  .fire { border-color: #ff4500; box-shadow: 0 0 10px #ff4500; }
-  .water { border-color: #1e90ff; box-shadow: 0 0 10px #1e90ff; }
-  .wind { border-color: #ccc; box-shadow: 0 0 10px #ccc; }
-  .earth { border-color: #228b22; box-shadow: 0 0 10px #228b22; }
-  .lightning { border-color: #f9ff00; box-shadow: 0 0 10px #f9ff00; }
-  .ice { border-color: #a0e0ff; box-shadow: 0 0 10px #a0e0ff; }
-  .poison { border-color: #6a0dad; box-shadow: 0 0 10px #6a0dad; }
-  .shadow { border-color: #555; box-shadow: 0 0 10px #555; }
-  .light { border-color: #ffd700; box-shadow: 0 0 10px #ffd700; }
-  .arcane { border-color: #b873ff; box-shadow: 0 0 10px #b873ff; }
-  .nature { border-color: #32cd32; box-shadow: 0 0 10px #32cd32; }
-  .spirit { border-color: #f0f8ff; box-shadow: 0 0 10px #f0f8ff; }
+.loot.common { color: #ccc; text-shadow: 0 0 2px #ccc; }
+.loot.rare { color: #1e90ff; text-shadow: 0 0 5px #1e90ff; }
+.loot.epic { color: #a020f0; text-shadow: 0 0 8px #a020f0; }
+.loot.legendary { color: #fbc02d; text-shadow: 0 0 10px #fbc02d, 0 0 20px #fbc02d; display: inline-block; animation: float 1.2s ease-in-out infinite alternate; }
+.loot.mythic { color: #ff1493; text-shadow: 0 0 12px #ff1493, 0 0 24px #ff1493; display: inline-block; animation: float 1.2s ease-in-out infinite alternate; }
+.loot.divine { color: #00ffff; text-shadow: 0 0 12px #00ffff, 0 0 24px #00ffff; display: inline-block; animation: float 1.2s ease-in-out infinite alternate; }
 
-  /* Loot glow by rarity */
-  .common { color: #ccc; text-shadow: 0 0 2px #ccc; }
-  .rare { color: #1e90ff; text-shadow: 0 0 5px #1e90ff; }
-  .epic { color: #a020f0; text-shadow: 0 0 8px #a020f0; }
-  .legendary { color: #fbc02d; text-shadow: 0 0 10px #fbc02d, 0 0 20px #fbc02d; display: inline-block; animation: float 1.2s ease-in-out infinite alternate; }
-  .mythic { color: #ff1493; text-shadow: 0 0 12px #ff1493, 0 0 24px #ff1493; display: inline-block; animation: float 1.2s ease-in-out infinite alternate; }
-  .divine { color: #00ffff; text-shadow: 0 0 12px #00ffff, 0 0 24px #00ffff; display: inline-block; animation: float 1.2s ease-in-out infinite alternate; }
+@keyframes float { 0% { transform: translateY(0px); } 100% { transform: translateY(-6px); } }
 
-  @keyframes float { 0% { transform: translateY(0px); } 100% { transform: translateY(-6px); } }
+.sparkle { position: absolute; width: 4px; height: 4px; border-radius: 50%; pointer-events: none; opacity: 0; animation: drift 1.5s forwards; }
+@keyframes drift { 0% { transform: translate(0,0) scale(1); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) scale(1.2); opacity: 0; } }
 
-  /* Drift sparkle style */
-  .sparkle { position: absolute; width: 4px; height: 4px; border-radius: 50%; pointer-events: none; opacity: 0; animation: drift 1.5s forwards; }
-  @keyframes drift { 0% { transform: translate(0,0) scale(1); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) scale(1.2); opacity: 0; } }
+/* Elemental effects */
+.elementalEffect {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.fire { background: radial-gradient(rgba(255,69,0,0.3), transparent); animation: flicker 1s infinite alternate; }
+.water { background: radial-gradient(rgba(30,144,255,0.3), transparent); animation: ripple 2s infinite alternate; }
+.wind { background: radial-gradient(rgba(200,200,200,0.2), transparent); animation: swirl 3s infinite linear; }
+.earth { background: radial-gradient(rgba(34,139,34,0.2), transparent); animation: dust 3s infinite alternate; }
+.lightning { background: radial-gradient(rgba(249,255,0,0.3), transparent); animation: spark 0.5s infinite alternate; }
+.ice { background: radial-gradient(rgba(160,224,255,0.3), transparent); animation: snow 2s infinite linear; }
+.poison { background: radial-gradient(rgba(106,13,173,0.2), transparent); animation: mist 3s infinite alternate; }
+.shadow { background: radial-gradient(rgba(85,85,85,0.3), transparent); animation: smoke 3s infinite alternate; }
+.light { background: radial-gradient(rgba(255,215,0,0.2), transparent); animation: glowPulse 2s infinite alternate; }
+.arcane { background: radial-gradient(rgba(184,115,255,0.2), transparent); animation: twinkle 2s infinite alternate; }
+.nature { background: radial-gradient(rgba(50,205,50,0.2), transparent); animation: petalFall 3s infinite linear; }
+.spirit { background: radial-gradient(rgba(240,248,255,0.2), transparent); animation: wisp 3s infinite alternate; }
+
+@keyframes flicker { 0% { opacity:0.3;} 50% { opacity:0.6;} 100% { opacity:0.4;} }
+@keyframes ripple { 0% { transform: scale(0.9);} 50% { transform: scale(1.1);} 100% { transform: scale(1);} }
+@keyframes swirl { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+@keyframes dust { 0% { transform: translateY(0);} 100% { transform: translateY(-5px);} }
+@keyframes spark { 0% { opacity:0.3;} 50% { opacity:0.8;} 100% { opacity:0.3;} }
+@keyframes snow { 0% { background-position:0 0;} 100% { background-position:20px 20px;} }
+@keyframes mist { 0% { opacity:0.2;} 100% { opacity:0.5;} }
+@keyframes smoke { 0% { transform: translateY(0);} 100% { transform: translateY(-8px);} }
+@keyframes glowPulse { 0% { opacity:0.2;} 100% { opacity:0.6;} }
+@keyframes twinkle { 0% { opacity:0.3;} 100% { opacity:0.7;} }
+@keyframes petalFall { 0% { transform: translateY(0);} 100% { transform: translateY(8px);} }
+@keyframes wisp { 0% { transform: translateY(0);} 100% { transform: translateY(-6px);} }
 </style>
 </head>
 <body>
@@ -89,10 +108,8 @@ function randomChoice(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
 
 // Adjectives
 const adjectives = ["Fierce","Ancient","Tiny","Shadowy","Savage","Corrupted","Enraged","Cunning","Mystic","Vicious","Silent","Wild","Infernal","Frozen","Electric","Venomous","Ghastly","Raging","Brutal","Cursed","Divine","Mighty","Swift","Stealthy","Burning","Spectral","Arcane","Stone","Thunderous","Twisted","Bloodthirsty","Dreadful","Ironclad","Phantom","Lurking","Shadowed","Vengeful","Golden","Ethereal","Plagued","Shimmering","Rotted","Frostbitten","Blazing","Haunted","Toxic","Stormy","Spiritbound","Emerald","Obsidian","Crystal","Radiant","Darkened","Luminous","Ancientborn"];
-
 // Names
 const names = ["Goblin","Specter","Slime","Wolf","Elemental","Ogre","Reaper","Imp","Wraith","Troll","Skeleton","Zombie","Dragonling","Ghoul","Harpy","Banshee","Golem","Phantom","Lich","Spider","Mimic","Serpent","Hydra","Wyvern","Vampire","Bat","Beast","Fiend","Shade","Kraken","Chimera","Minotaur","Demon","Pixie","Fairy","Kobold","Cyclops","Salamander","Wisp","Drake","Wolverine","Raptor","Cobra","Oni","Succubus","Incubus","Necromancer","Shadebeast","Frostling","Firebrand","Stormcaller","Earthshaker","Spiritwalker","Nightstalker","Venomfang"];
-
 // Types
 const types = [
   { name: "Melee", emoji: "⚔️" }, { name: "Ranged", emoji: "🏹" }, { name: "Caster", emoji: "🔮" },
@@ -101,7 +118,6 @@ const types = [
   { name: "Mage", emoji: "✨" }, { name: "Necromancer", emoji: "☠️" }, { name: "Elementalist", emoji: "🌪️" },
   { name: "Rogue", emoji: "🌙" }, { name: "Shaman", emoji: "🪶" }, { name: "Warlock", emoji: "💀" }
 ];
-
 // Elements
 const elements = [
   { name: "Fire", emoji: "🔥", color: "#ff4500" }, { name: "Water", emoji: "💧", color: "#1e90ff" },
@@ -111,8 +127,7 @@ const elements = [
   { name: "Light", emoji: "🌞", color: "#ffd700" }, { name: "Arcane", emoji: "💫", color: "#b873ff" },
   { name: "Nature", emoji: "🌸", color: "#32cd32" }, { name: "Spirit", emoji: "🪶", color: "#f0f8ff" }
 ];
-
-// Loot rarities & items
+// Loot
 const lootRarities = [
   { name: "🪓 Common", class: "common" }, { name: "🟦 Uncommon", class: "rare" },
   { name: "🟩 Rare", class: "rare" }, { name: "🟪 Epic", class: "epic" },
@@ -121,14 +136,14 @@ const lootRarities = [
 ];
 const lootItems = ["Sword","Bow","Staff","Dagger","Amulet","Ring","Armor","Wand","Helm","Shield","Gauntlets","Boots","Cape","Potion","Scroll","Orb","Talisman","Scepter","Lance","Crossbow","Grimoire","Crystal","Charm","Pendant","Totem","Bracer","Mask","Crown","Belt","Gemstone","Lantern"];
 
-// Enemy generator
+function randomChoice(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
+
 function generateEnemy() {
   const isBoss = Math.random() < 0.05;
   const type = randomChoice(types);
   const element = randomChoice(elements);
   const name = `${isBoss ? "💀 Boss " : ""}${type.emoji} ${randomChoice(adjectives)} ${randomChoice(names)}`;
 
-  // Stats
   const hp = isBoss ? Math.floor(Math.random()*300)+500 : Math.floor(Math.random()*50)+50;
   const mp = isBoss ? Math.floor(Math.random()*200)+100 : Math.floor(Math.random()*30)+20;
   const strength = isBoss ? Math.floor(Math.random()*50)+50 : Math.floor(Math.random()*15)+5;
@@ -147,7 +162,6 @@ function generateEnemy() {
   return { name, type, hp, mp, strength, dexterity, intelligence, defense, resistance, speed, luck, strengthElement: element, weakness, loot, isBoss };
 }
 
-// Sparkles
 function createDriftSparkles(container, color, count=15) {
   for (let i = 0; i < count; i++) {
     const sparkle = document.createElement('div');
@@ -164,29 +178,17 @@ function createDriftSparkles(container, color, count=15) {
   }
 }
 
-// Display
 function displayEnemy(enemy) {
   const container = document.createElement('div');
-
-  // Size & border based on stats
   const baseSize = 12;
   container.style.padding = `${baseSize + enemy.hp/50}px`;
   container.style.borderWidth = `${2 + enemy.strength/30}px`;
-
-  // Glow for casters
-  let glowIntensity = enemy.intelligence / 5;
-  if (["Caster","Mage","Warlock","Elementalist","Necromancer","Shaman"].includes(enemy.type.name)) {
-    container.style.boxShadow = `0 0 ${glowIntensity*2}px ${enemy.strengthElement.color}`;
-  }
-
-  // Floating speed by DEX
   const floatSpeed = Math.max(0.5, 2 - enemy.dexterity/100);
   container.style.animation = `fadeIn 0.4s ease forwards, floatEnemy ${floatSpeed}s ease-in-out infinite alternate`;
-
   const sparkleCount = 15 + Math.floor(enemy.luck / 2);
-
   container.className = `enemy ${enemy.strengthElement.name.toLowerCase()}` + (enemy.isBoss ? ' boss' : '');
   container.innerHTML = `
+    <div class="elementalEffect ${enemy.strengthElement.name.toLowerCase()}"></div>
     <strong>${enemy.name}</strong> (${enemy.type.name})<br>
     ❤️ HP: ${enemy.hp} | 🔵 MP: ${enemy.mp}<br>
     💪 STR: ${enemy.strength} | 🏃 DEX: ${enemy.dexterity} | 🧠 INT: ${enemy.intelligence}<br>
@@ -195,10 +197,8 @@ function displayEnemy(enemy) {
     ❌ Weakness: <span class="${enemy.weakness.name.toLowerCase()}">${enemy.weakness.emoji} ${enemy.weakness.name}</span><br>
     🎁 Loot: <span class="loot ${enemy.loot.rarity.class}">${enemy.loot.rarity.name} ${enemy.loot.element.emoji} ${enemy.loot.element.name} ${enemy.loot.item}</span>
   `;
-
   document.getElementById('enemyList').prepend(container);
   createDriftSparkles(container, enemy.strengthElement.color, sparkleCount);
-
   if (enemy.isBoss) createDriftSparkles(container, '#ffd700', sparkleCount);
   if (['legendary','mythic','divine'].includes(enemy.loot.rarity.class)) {
     const lootElem = container.querySelector('.loot');
@@ -206,10 +206,8 @@ function displayEnemy(enemy) {
   }
 }
 
-// Buttons
 document.getElementById('generate').addEventListener('click', () => displayEnemy(generateEnemy()));
 document.getElementById('clear').addEventListener('click', () => document.getElementById('enemyList').innerHTML='');
 </script>
-
 </body>
 </html>
