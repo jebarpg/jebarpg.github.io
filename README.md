@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Ultimate Random Enemy Generator</title>
+<title>dltimate Random Enemy Generator</title>
 <style>
   body {
     font-family: sans-serif;
