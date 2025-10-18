@@ -1,6 +1,7 @@
 import {
   faBootstrap,
   faCss3,
+  faFontAwesome,
   faGit,
   faGithub,
   faHtml5,
@@ -22,6 +23,7 @@ const iconMap: Record<string, IconDefinition> = {
   faGit: faGit,
   faGithub: faGithub,
   faWind: faWind,
+  faFontAwesome: faFontAwesome,
 };
 
 interface SkillsProps {

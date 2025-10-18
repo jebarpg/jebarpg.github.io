@@ -97,6 +97,12 @@
       "color": "blue"
     },
     {
+      "icon": "faFontAwesome",
+      "name": "FontAwesome",
+      "text": "I integrate Font Awesome icons for clean, scalable visuals that enhance UI design.",
+      "color": "blue"
+    },
+    {
       "icon": "faNodeJs",
       "name": "Node.js",
       "text": "Server-side JavaScript. I build fast, scalable backend services and APIs using Node.js.",
