@@ -113,10 +113,16 @@
       "name": "GitHub",
       "text": "Collaborative development. I host, review, and manage projects using GitHub’s ecosystem.",
       "color": "black"
+    },
+    {
+      "icon": "faWind",
+      "name": "Windsurf",
+      "text": "My go-to AI-powered editor built on VS Code, enhancing productivity with smart autocomplete, chat, and seamless integration.",
+      "color": "black"
     }
   ],
   "Contact": {
-    "address": "P.O. Box 1693, Kingston, Washington 98364",
+    "address": " P.O. Box 1693, Kingston, Washington 98346",
     "phone": "+1 360 524 2745",
     "email": "jebarpg@gmail.com",
     "linkedin": "https://linkedin.com/in/jebradwell",

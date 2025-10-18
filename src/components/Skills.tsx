@@ -8,6 +8,7 @@ import {
   faNodeJs,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
+import { faWind } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 
@@ -20,6 +21,7 @@ const iconMap: Record<string, IconDefinition> = {
   faNodeJs: faNodeJs,
   faGit: faGit,
   faGithub: faGithub,
+  faWind: faWind,
 };
 
 interface SkillsProps {
