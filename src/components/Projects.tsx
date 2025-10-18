@@ -13,6 +13,7 @@ const Projects = (props: ProjectsProps) => {
     <div id="projects" className="text-center">
       <div className="container">
         <div className="section-title">
+          <div style={{ padding: "40px" }}></div>
           <h2>Projects</h2>
           <p>Here are some of the projects I have worked on.</p>
         </div>

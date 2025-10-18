@@ -35,6 +35,7 @@ const Skills = (props: SkillsProps) => {
     <div id="skills" className="text-center">
       <div className="container">
         <div className="section-title">
+          <div style={{ padding: "40px" }}></div>
           <h2>My Skills</h2>
           <p>Here are some of the skills used for this site.</p>
         </div>
