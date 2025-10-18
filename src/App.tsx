@@ -42,9 +42,9 @@ interface LandingPageData {
     address: string;
     phone: string;
     email: string;
-    facebook: string;
-    twitter: string;
-    youtube: string;
+    linkedin: string;
+    github: string;
+    medium: string;
   };
 }
 function App() {
@@ -64,9 +64,9 @@ function App() {
       address: "",
       phone: "",
       email: "",
-      facebook: "",
-      twitter: "",
-      youtube: "",
+      linkedin: "",
+      github: "",
+      medium: "",
     },
   });
   useEffect(() => {
