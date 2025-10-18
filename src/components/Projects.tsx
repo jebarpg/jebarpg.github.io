@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: "Random Enemy Generator",
     staticImg: "/imgs/enemyGenerator.png",
     animatedImg: "/imgs/animated1.gif",
-    tags: ["HTML5", "CSS3", "JavaScript"],
+    tags: ["HTML5", "CSS3", "JavaScript", "Vibe Coding"],
     link: "https://jebarpg.github.io/enemyGenerator",
   },
   // {
