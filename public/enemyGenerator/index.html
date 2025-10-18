@@ -64,11 +64,13 @@ button:active { transform: scale(0.97); }
 </head>
 <body>
 
-<h1>⚔️ Random Enemy Generator 💾</h1>
+<h1>⚔️ Random Enemy Generator</h1>
 <div class="buttons">
-  <button id="generate">Generate Enemy</button>
-  <button id="clear">Clear Enemies</button>
-  <button id="save">Save Enemies as JSON</button>
+  <button id="generate">🧬 Generate Enemy</button>
+  <button id="clear">🗑️ Clear Enemies</button>
+  <button id="save">💾 Save Enemies as JSON</button>
+  <button onclick="loadEnemies()">📂 Load Enemies</button>
+  <input type="file" id="fileInput" accept=".json" style="display:none" />
 </div>
 <div id="enemyList"></div>
 
@@ -165,6 +167,24 @@ document.getElementById('save').addEventListener('click',()=>{
   a.click();
   URL.revokeObjectURL(url);
 });
+
+function loadEnemies() {
+      document.getElementById("fileInput").click();
+    }
+
+    document.getElementById("fileInput").addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        enemies = JSON.parse(e.target.result);
+        document.getElementById("enemyList").innerHTML = "";
+        enemies.forEach(displayEnemy);
+		// ✅ Reset the file input so the same file can be loaded again later
+		document.getElementById("fileInput").value = "";
+      };
+      reader.readAsText(file);
+    });
 </script>
 </body>
 </html>
