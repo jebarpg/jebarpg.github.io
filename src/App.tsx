@@ -78,7 +78,7 @@ function App() {
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
       <Skills data={landingPageData.Skills} />
-      <Projects data={landingPageData.Projects} />
+      <Projects />
       <Contact data={landingPageData.Contact} />
       <Footer />
     </>
