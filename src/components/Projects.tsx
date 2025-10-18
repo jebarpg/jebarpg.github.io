@@ -10,14 +10,11 @@ interface ProjectsProps {
 
 const Projects = (props: ProjectsProps) => {
   return (
-    <div id="portfolio" className="text-center">
+    <div id="projects" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Gallery</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
-          </p>
+          <h2>Projects</h2>
+          <p>Here are some of the projects I have worked on.</p>
         </div>
         <div className="row">
           <div className="portfolio-items">

@@ -6,6 +6,10 @@ import Navigation from "./components/Navigation";
 import JsonData from "./data/data.json";
 
 import SmoothScroll from "smooth-scroll";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const scroll = new SmoothScroll('a[href*="#"]', {
@@ -27,6 +31,7 @@ interface LandingPageData {
     icon: string;
     name: string;
     text: string;
+    color: string;
   }[];
   Projects: {
     title: string;
@@ -71,6 +76,10 @@ function App() {
     <>
       <Navigation />
       <Header data={landingPageData.Header} />
+      <About data={landingPageData.About} />
+      <Skills data={landingPageData.Skills} />
+      <Projects data={landingPageData.Projects} />
+      <Contact data={landingPageData.Contact} />
       <Footer />
     </>
   );

@@ -4,18 +4,18 @@
     "paragraph": "Welcome to my portfolio. Checkout my projects."
   },
   "About": {
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paragraph": "Hi, I’m Jeb — a software engineer and solo game developer. I specialize in building high-performance web systems and immersive games, blending real-time multiplayer networking with thoughtful, scalable design. I’m currently working on a web-based MMO Action RPG, leveraging Node.js, TypeScript, Phaser 3, Redis, MariaDB, Socket.io, and µWebSockets to create fast, responsive gameplay across platforms. I also write about development workflows and problem-solving on Medium, sharing insights from my experiences building games and software from the ground up. When I’m not coding, I’m exploring game design ideas, optimizing systems for performance, and pushing the boundaries of what a solo developer can achieve.",
     "Why": [
-      "Lorem ipsum dolor",
-      "Tempor incididunt",
-      "Lorem ipsum dolor",
-      "Incididunt ut labore"
+      "Proven track record of delivering high-quality, high-performance projects.",
+      "Versatile full-stack developer skilled in Node.js, TypeScript, Phaser 3, Socket.io, and MariaDB.",
+      "Experienced in real-time multiplayer systems and cross-platform deployment.",
+      "Strong problem-solving skills, capable of working independently and troubleshooting complex issues."
     ],
     "Why2": [
-      "Aliquip ex ea commodo",
-      "Lorem ipsum dolor",
-      "Exercitation ullamco",
-      "Lorem ipsum dolor"
+      "Innovative system and game design, creating features that enhance user experience and engagement.",
+      "Strategic thinker with a focus on scalable, long-term project growth.",
+      "Passionate about sharing knowledge, mentoring, and improving team workflows.",
+      "Excellent communication skills and commitment to delivering results that exceed expectations."
     ]
   },
   "Projects": [
@@ -67,42 +67,60 @@
   ],
   "Skills": [
     {
-      "icon": "fa fa-wordpress",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "faHtml5",
+      "name": "HTML5",
+      "text": "The backbone of the web. I use HTML5 to structure content and create semantic, accessible markup.",
+      "color": "orange"
     },
     {
-      "icon": "fa fa-cart-arrow-down",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "faCss3",
+      "name": "CSS3",
+      "text": "Styling made powerful. I bring designs to life with responsive layouts, animations, and modern CSS techniques.",
+      "color": "blue"
     },
     {
-      "icon": "fa fa-cloud-download",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "faJs",
+      "name": "JavaScript",
+      "text": "The language of interactivity. I use JS to build dynamic, responsive, and engaging web experiences.",
+      "color": "yellow"
     },
     {
-      "icon": "fa fa-language",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "faReact",
+      "name": "React",
+      "text": "Component-driven UI. I leverage React for efficient, reusable, and state-driven front-end development.",
+      "color": "blue"
     },
     {
-      "icon": "fa fa-plane",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "faBootstrap",
+      "name": "Bootstrap",
+      "text": "Rapid responsive design. I use Bootstrap to quickly prototype and implement mobile-first, consistent layouts.",
+      "color": "blue"
     },
     {
-      "icon": "fa fa-pie-chart",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "icon": "faNodeJs",
+      "name": "Node.js",
+      "text": "Server-side JavaScript. I build fast, scalable backend services and APIs using Node.js.",
+      "color": "green"
+    },
+    {
+      "icon": "faGit",
+      "name": "Git",
+      "text": "Version control mastery. I manage code changes, track history, and collaborate seamlessly using Git.",
+      "color": "black"
+    },
+    {
+      "icon": "faGithub",
+      "name": "GitHub",
+      "text": "Collaborative development. I host, review, and manage projects using GitHub’s ecosystem.",
+      "color": "black"
     }
   ],
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
-    "phone": "+1 123 456 1234",
-    "email": "info@company.com",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "address": "P.O. Box 1693, Kingston, Washington 98364",
+    "phone": "+1 360 524 2745",
+    "email": "jebarpg@gmail.com",
+    "linkedin": "https://linkedin.com/in/jebradwell",
+    "github": "https://github.com/jebarpg",
+    "medium": "https://medium.com/@jebarpg"
   }
 }

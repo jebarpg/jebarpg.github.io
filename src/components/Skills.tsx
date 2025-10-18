@@ -1,28 +1,53 @@
+import {
+  faBootstrap,
+  faCss3,
+  faGit,
+  faGithub,
+  faHtml5,
+  faJs,
+  faNodeJs,
+  faReact,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconDefinition } from "@fortawesome/free-brands-svg-icons";
+
+const iconMap: Record<string, IconDefinition> = {
+  faHtml5: faHtml5,
+  faCss3: faCss3,
+  faJs: faJs,
+  faReact: faReact,
+  faBootstrap: faBootstrap,
+  faNodeJs: faNodeJs,
+  faGit: faGit,
+  faGithub: faGithub,
+};
 
 interface SkillsProps {
   data: {
     icon: string;
     name: string;
     text: string;
+    color: string;
   }[];
 }
 const Skills = (props: SkillsProps) => {
   return (
-    <div id="services" className="text-center">
+    <div id="skills" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Our Services</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
-          </p>
+          <h2>My Skills</h2>
+          <p>Here are some of the skills used for this site.</p>
         </div>
         <div className="row">
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-4">
+                <div key={`${d.name}-${i}`} className="col-md-3">
                   {" "}
-                  <i className={d.icon}></i>
+                  <FontAwesomeIcon
+                    icon={iconMap[d.icon]}
+                    size="5x"
+                    color={d.color}
+                  />
                   <div className="service-desc">
                     <h3>{d.name}</h3>
                     <p>{d.text}</p>
@@ -33,7 +58,7 @@ const Skills = (props: SkillsProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;
