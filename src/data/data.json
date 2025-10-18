@@ -80,7 +80,7 @@
     },
     {
       "icon": "faJs",
-      "name": "JavaScript",
+      "name": "JavaScript/TypeScript",
       "text": "The language of interactivity. I use JS to build dynamic, responsive, and engaging web experiences.",
       "color": "yellow"
     },
